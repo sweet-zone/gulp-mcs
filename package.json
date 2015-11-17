@@ -2,6 +2,7 @@
   "name": "gulp-mcs",
   "version": "0.1.0",
   "description": "mcss plugin for gulp",
+  "repository": "https://github.com/zjzhome/gulp-mcs",
   "main": "index.js",
   "keywords": [
     "gulp",
