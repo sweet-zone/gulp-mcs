@@ -26,6 +26,7 @@ module.exports = function(opt) {
 			self.push(file);
 			cb();
 		}).fail(function(error) {
+			mcss.error.format(error)
 			console.log(error.message);
 			cb();
 		});

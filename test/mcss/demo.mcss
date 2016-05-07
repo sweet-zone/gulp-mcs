@@ -4,6 +4,7 @@
     div, ul{
         + div{
             margin-top: 20px;
+            margin-bottom: 30px;
         }
         border: 2px solid #ccc;
         > a{
