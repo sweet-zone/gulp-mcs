@@ -1,8 +1,9 @@
-
-var through = require('through2'),
-	gutil = require('gulp-util'),
-	PluginError = gutil.PluginError,
-	mcss = require('mcss');
+var path = require('path');
+var mcss = require('mcss');
+var through = require('through2');
+var gutil = require('gulp-util');
+var PluginError = gutil.PluginError;
+var cwd = process.cwd();
 
 const PLUGIN_NAME = 'gulp-mcs';
 
@@ -19,8 +20,21 @@ module.exports = function(opt) {
 			return cb();
 		}
 
+        var include;
+
+        if (opt.include) {
+            if (!Array.isArray(opt.include)) { opt.include = [ opt.include ]; }
+            include = opt.include.map(function (p) {
+                return path.resolve(cwd, p);
+            });
+        }
+
+        var instance = mcss(opt);
+
+        if (include) { instance.include(include); }
+
 		var self = this;
-		mcss(opt).set('filename', file.path).translate().done(function(text) {
+		instance.set('filename', file.path).translate().done(function(text) {
 			file.contents = new Buffer(text);
 			file.path = gutil.replaceExtension(file.path, '.css');
 			self.push(file);

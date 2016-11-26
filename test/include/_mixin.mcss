@@ -1,0 +1,4 @@
+$cube = ($size = 0px) {
+    width: $size;
+    height: $size;
+}
