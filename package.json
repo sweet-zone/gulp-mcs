@@ -1,6 +1,6 @@
 {
   "name": "gulp-mcs",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "mcss plugin for gulp",
   "repository": "https://github.com/zjzhome/gulp-mcs",
   "main": "index.js",
